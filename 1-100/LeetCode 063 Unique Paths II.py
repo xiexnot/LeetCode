@@ -4,6 +4,7 @@
 	LeetCode 063
 	题目：	有障碍的矩阵地图，左上到右下的路径数量
 	解法：	DP
+	注意：	起点为obstacle的情况
 """
 
 class Solution(object):
@@ -22,7 +23,10 @@ class Solution(object):
 			for j in range(n):
 				result_item.append(0)
 			result.append(result_item)
-		result[0][0] = 1
+		if obstacleGrid[0][0] == 1:
+			result[0][0] = 0
+		else:
+			result[0][0] = 1
 		for i in range(m):
 			for j in range(n):
 				if obstacleGrid[i][j] == 1:
